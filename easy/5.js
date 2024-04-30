@@ -1,22 +1,25 @@
+//Instead of using arrays, use str.subString(leftPointer,rightPointer) 
+
 var longestPalindrome = function(str) {
     let palindromes = [];
     let leftPointer = 0;
     let rightPointer = 0;
+    let currentStringArray=[]
+    while(leftPointer<str.length && rightPointer<str.length){
+        // console.log(str.substring(leftPointer,rightPointer))
+        currentStringArray.push(str.charAt(rightPointer))
 
-    while(leftPointer<str.length){
-        rightPointer=leftPointer
-        let currentStringArray=[]
-        while(rightPointer<str.length){
-            currentStringArray.push(str.charAt(rightPointer))
-            let reverseCurrentStringArray=[...currentStringArray].reverse()
-            if(reverseCurrentStringArray.join('')==currentStringArray.join('')){
+        let currentStringArrayReversed=[...currentStringArray].reverse()
 
-                palindromes.push(currentStringArray.join(''))
-            }   
-            rightPointer++
+        if(currentStringArrayReversed.join('')==currentStringArray.join('')){
+            palindromes.push(currentStringArray.join(''))
         }
-        leftPointer++
-
+        rightPointer++
+        if(rightPointer>=str.length){
+            leftPointer++
+            rightPointer=leftPointer
+            currentStringArray=[]
+        }
     }
     let output=palindromes.sort((a,b)=>b.length-a.length)
     return output[0]
