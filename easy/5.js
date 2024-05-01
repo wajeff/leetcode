@@ -1,6 +1,9 @@
 //Instead of using arrays, use str.subString(leftPointer,rightPointer) 
 
 var longestPalindrome = function(str) {
+    if (str.length==1){
+        return str
+    }
     let palindromes = [];
     let leftPointer = 0;
     let rightPointer = 0;
@@ -8,10 +11,9 @@ var longestPalindrome = function(str) {
     while(leftPointer<str.length && rightPointer<str.length){
         currentString+=str.charAt(rightPointer)
         if(currentString.endsWith(currentString.charAt(0))){
-            //Add another if{
-                //palindromes.push(currentString)
-            //}
-
+            if(currentString.split('').reverse().join('')==currentString){
+                palindromes.push(currentString)
+            }
             
         }
         rightPointer++
@@ -24,6 +26,6 @@ var longestPalindrome = function(str) {
     let output=palindromes.sort((a,b)=>b.length-a.length)
     return output[0]
 };
-longestPalindrome('cbbd') //=>'bab'
+longestPalindrome('ac') //
                 // l
                 // r
