@@ -7,11 +7,12 @@ var longestPalindrome = function(str) {
     let currentString=''
     while(leftPointer<str.length && rightPointer<str.length){
         currentString+=str.charAt(rightPointer)
+        if(currentString.endsWith(currentString.charAt(0))){
+            //Add another if{
+                //palindromes.push(currentString)
+            //}
 
-        let currentStringReversed=currentString.split('').reverse().join('')
-        if(currentStringReversed==currentString){
-            // console.log(currentString)
-            palindromes.push(currentString)
+            
         }
         rightPointer++
         if(rightPointer>=str.length){
