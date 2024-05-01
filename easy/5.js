@@ -6,19 +6,18 @@ var longestPalindrome = function(str) {
     let rightPointer = 0;
     let currentString=''
     while(leftPointer<str.length && rightPointer<str.length){
-        // console.log(str.substring(leftPointer,rightPointer))
-        currentString.push(str.charAt(rightPointer))
+        currentString+=str.charAt(rightPointer)
 
-        let currentStringReversed=currentString.substring(leftPointer,rightPointer)
-
-        if(currentStringArrayReversed.join('')==currentStringArray.join('')){
-            palindromes.push(currentStringArray.join(''))
+        let currentStringReversed=currentString.split('').reverse().join('')
+        if(currentStringReversed==currentString){
+            // console.log(currentString)
+            palindromes.push(currentString)
         }
         rightPointer++
         if(rightPointer>=str.length){
             leftPointer++
             rightPointer=leftPointer
-            currentStringArray=[]
+            currentString=''
         }
     }
     let output=palindromes.sort((a,b)=>b.length-a.length)
