@@ -4,12 +4,12 @@ var longestPalindrome = function(str) {
     let palindromes = [];
     let leftPointer = 0;
     let rightPointer = 0;
-    let currentStringArray=[]
+    let currentString=''
     while(leftPointer<str.length && rightPointer<str.length){
         // console.log(str.substring(leftPointer,rightPointer))
-        currentStringArray.push(str.charAt(rightPointer))
+        currentString.push(str.charAt(rightPointer))
 
-        let currentStringArrayReversed=[...currentStringArray].reverse()
+        let currentStringReversed=currentString.substring(leftPointer,rightPointer)
 
         if(currentStringArrayReversed.join('')==currentStringArray.join('')){
             palindromes.push(currentStringArray.join(''))
