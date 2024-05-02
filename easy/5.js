@@ -1,30 +1,33 @@
-//Instead of using arrays, use str.subString(leftPointer,rightPointer) 
-
 var longestPalindrome = function(str) {
-    let leftLetter=0
-    let rightLetter=0
-    let palindromes=[]
-    if(str.length==1){
-        return str
+    if (str.length<1||str==null){
+        return ''
     }
-    while(leftLetter<str.length){
-        currentStr=str.slice(leftLetter,str.length-rightLetter)
-        console.log(currentStr)
-        if(currentStr.endsWith(currentStr.charAt(0))){
-            if(currentStr.split('').reverse().join('')==currentStr){
-                palindromes.push(currentStr)
-            }
+    let longest = '';
+    for(let i = 0; i<str.length ; i++){
+        let oddPalindrome = expandFromCenter(str, i, i)
+        let evenPalindrome = expandFromCenter(str, i-1, i)
+        
+        if(oddPalindrome.length>longest.length){
+            longest=oddPalindrome
         }
-        rightLetter++
-        if(currentStr.length<=1){
-            leftLetter++
-            rightLetter=0
+        if(evenPalindrome.length>longest.length){
+            longest=evenPalindrome
         }
     }
-    console.log(palindromes)
-    let output=palindromes.sort((a,b)=>b.length-a.length)
-    return output[0]
+
+    return longest 
+    
+    function expandFromCenter(str,left,right){
+        let i = 0 
+
+        while(str[left-i]&&str[left-i]===str[right+i]){
+            i++
+        }
+        i--;
+        return str.slice(left-i, right+i+1)
+    }
+      
 };
-longestPalindrome('abcdbbfcba') //
+longestPalindrome('a') //
                 // l
                 // r
