@@ -1,19 +1,29 @@
 var isAnagram = function(s, t){
-    let initialString = s
     if(s.length!=t.length){
         return false
     }
-    for(let i = 0; i < initialString.length ; i++){
-        console.log(s.replace(t[i],''))
-        if(s.includes(t[i])){
-            s=s.replace(t[i],'')
+    let sLetters={};
+    for(char of s){
+        if(!sLetters[char]){
+            sLetters[char]=1
+        }
+        else{
+            sLetters[char]+=1
         }
     }
-    if(s.length==0){
-        return true
+    for(char of t){
+        if(!sLetters[char]){
+            return false
+        }
+        else{
+            sLetters[char]-=1
+        }
+        if(sLetters[char]==0){
+            delete sLetters[char]
+        }
     }
-    else{
-        return false
-    }
+    return true
+
+
 };
 isAnagram('rat','car')
