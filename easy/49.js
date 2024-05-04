@@ -21,7 +21,5 @@ var groupAnagrams = function(strs) {
     for(index in output){
         result.push(output[index])
     }
-    console.log(result)
-
 };  
 groupAnagrams(["eat","tea","tan","ate","nat","bat"])
