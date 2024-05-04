@@ -19,11 +19,9 @@ var isAnagram = function(s, t){
             sLetters[char]-=1
         }
         if(sLetters[char]==0){
-            delete sLetters[char]
+            delete (sLetters[char])
         }
     }
     return true
-
-
 };
 isAnagram('rat','car')
