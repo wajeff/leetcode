@@ -3,7 +3,6 @@ var topKFrequent = function(nums, k) {
     output=[]
     let numsMap= new Map();
     for (index in nums){
-
         if(numsMap.has(nums[index])){
             numsMap.set(nums[index], numsMap.get(nums[index]) + 1)
         } 
