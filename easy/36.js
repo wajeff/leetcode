@@ -3,19 +3,25 @@
  * @return {boolean}
  */
 var isValidSudoku = function(board) {
-    for (row in board){
-        currentRowValues = board[row].filter((x)=>x!='.')
-        for ( values in currentRowValues){
-            
-        }
+    let indexOfValues = []
+    let columnValues = []
+    let topRow = board[0]
 
+    for(let i = 0; i <topRow.length ; i ++){
+        
+        for (let j = 0; j <topRow.length ;j++){
+            if(topRow[i].includes(board[i][j])&&topRow[i]!='.'){
+                return false
+            }
+        }  
+        columnValues = []
     }
-    console.log(board[0].filter((x)=>x!='.'))
-
+    return true
 };
 
 
-isValidSudoku([["5","3",".",".","7",".",".",".","."]
+isValidSudoku(
+[["5","3",".",".","7",".",".",".","."]
 ,["6",".",".","1","9","5",".",".","."]
 ,[".","9","8",".",".",".",".","6","."]
 ,["8",".",".",".","6",".",".",".","3"]
