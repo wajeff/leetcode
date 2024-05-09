@@ -8,7 +8,6 @@ var isPalindrome = function(num) {
         left = (Math.floor(numLength/2))
         right = left++
         while(num[left]){
-            
             if(num[left]==num[right]){
                 left--
                 right++
@@ -22,7 +21,6 @@ var isPalindrome = function(num) {
     else if(num.length%2!=0){
         left =Math.floor(numLength/2);
         right = Math.floor(numLength/2);
-
         while(num[left]){
             if(num[left]==num[right]){
                 left--
@@ -35,7 +33,4 @@ var isPalindrome = function(num) {
         return true
 
     }
-
-
 };
-isPalindrome(12321)
