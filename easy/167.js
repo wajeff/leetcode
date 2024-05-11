@@ -1,10 +1,18 @@
 var twoSum = function(numbers, target) {
 
-    for(let i = 0 ; i < numbers.length ; i++){
-        let valueToFind = target - numbers[i]
-        if(numbers.indexOf(valueToFind)!=-1&&numbers.indexOf(valueToFind)!=i){
-            return([i+1,numbers.indexOf(valueToFind)+1].sort((a,b)=>a-b))
+    let left = 0
+    let right = numbers.length-1
+
+    while(left < right){
+        if (numbers[left]+numbers[right]==target){
+            return [left+1,right+1]
+        }else if(numbers[left]+numbers[right]>target){
+            right--
+        }
+        else if(numbers[left]+numbers[right]<target){
+            left++
         }
     }
 
 };
+twoSum([0,0,3,4],0)
