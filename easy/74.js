@@ -1,6 +1,6 @@
 var searchMatrix = function(matrix, target) {
-    matrix = matrix.flat()
-    if (matrix.indexOf(target)!=-1){
+
+    if (matrix.flat().indexOf(target)!=-1){
         return true
     }
     else{
