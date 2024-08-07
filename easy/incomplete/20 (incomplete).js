@@ -3,14 +3,41 @@
  * @return {boolean}
  */
 var isValid = function(s) {
-    if(s.lastIndexOf('(')>s.lastIndexOf(')')){
-        return false
+  let openBracket = 0
+  let closedBracket = 0
+  let openCurlyBracket = 0
+  let closedCurlyBracket = 0
+  let openSquareBracket = 0
+  let closedSquareBracket = 0
+  for ( let i = 0 ; i < s.length ; i ++ ){
+    if(s[i]=="("){
+      openBracket++
     }
-    if(s.lastIndexOf('{')>s.lastIndexOf('}')){
-        return false
+    if(s[i]==")"){
+      closedBracket++
     }
-    if(s.lastIndexOf('[')>s.lastIndexOf(']')){
-        return false
+    if(s[i]=="{"){
+      openCurlyBracket++
     }
-    return true
+    if(s[i]=="}"){
+      closedCurlyBracket++
+    }
+    if(s[i]=="["){
+      openSquareBracket++
+    }
+    if(s[i]=="]"){
+      closedSquareBracket++
+    }
+  }
+  if(openBracket!==closedBracket){
+    return false
+  }
+  if(openCurlyBracket!==closedCurlyBracket){
+    return false
+  }
+  if(openSquareBracket!==closedSquareBracket){
+    return false
+  }
 };
+
+isValid("()[]{}")
