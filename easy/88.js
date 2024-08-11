@@ -22,3 +22,19 @@ var merge = function(nums1, m, nums2, n) {
 
 };
 merge([1,0],1,[2],1)
+
+/*Alternative solution
+
+
+var merge = function(nums1, m, nums2, n) {
+  nums1.length=m
+  nums2.length=n
+  array=nums1.concat(nums2)
+  
+  array = array.sort((a,b)=>a-b)
+  for (let i = 0 ; i < array.length ; i++){
+    nums1[i]=array[i]
+  }
+  return(array)
+};
+*/
