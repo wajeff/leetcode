@@ -1,24 +1,23 @@
 var generate = function(numRows) {
-  let output = [1]
-  
-  for (let i = 0 ; i < numRows; i ++){
-      if(i==0){
-          output.push([1,1])
-      }
-      else{
-        console.log(i)
-        
-        currentArray = output[i]
-        console.log(currentArray)
-        currentArray.splice([Math.ceil(output[i].length/2)],0,output[i-1]+output[i])
 
+  if(numRows < 1) return [];
+  if (numRows ===1) return [[1]];
 
-        output.push(currentArray)
-      }
-      
+  const triangle = [[1]];
 
+  for (let i = 1 ; i <numRows ; i++){
+    let previousRow = triangle [i - 1];
+    const currentRow = [];
 
+    currentRow.push(1);
+
+    for (let j = 1; j <previousRow.length; j++){
+      currentRow[j]=previousRow[j]+previousRow[j-1];
+    }
+    currentRow.push(1)
+    triangle.push(currentRow)
   }
+  return(triangle) 
   
 };
 generate(5)
