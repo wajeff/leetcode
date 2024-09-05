@@ -1,5 +1,10 @@
 var containsNearbyDuplicate = function(nums, k) {
-  let map = new Map()
+  //remake with hash table
+}
+containsNearbyDuplicate([1,0,1,1],1)
+
+/*
+ let map = new Map()
 
   for (let i = 0 ; i < nums.length ; i++){
     if(!map.has(nums[i])){
@@ -14,6 +19,4 @@ var containsNearbyDuplicate = function(nums, k) {
     }
   }
   // console.log(false)
-  return false
-}
-containsNearbyDuplicate([1,0,1,1],1)
+  return false */
