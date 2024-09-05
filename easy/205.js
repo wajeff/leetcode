@@ -1,38 +1,27 @@
 var isIsomorphic = function(s, t) {
+
+  const sMap = {}
+  const tMap = {}
   
-  function count(string){
-    const count = {}
-    for(let i = 0;i< string.length;i++){ 
-      let ch = string.charAt(i) 
-      if(!count[ch]){ 
-        count[ch] =1; 
-      } 
-      else{ 
-        count[ch]+=1 
+  for (let i = 0 ; i < s.length ; i++){
+    if(sMap[s[i]]){
+      if(sMap[s[i]]!==t[i]){
+        return false
+      }
+    } 
+    else{
+      sMap[s[i]]=t[i]
+    }
+    if(tMap[t[i]]){
+      if(tMap[t[i]]!==s[i]){
+        return false
       } 
     }
-    return count
-  }
-  
-  const sCount=count(s)
-  const tCount=count(t)
-
-
-  let sArray=[]
-  let tArray=[]
-  for (index in sCount){
-    sArray.push(sCount[index])
-  }
-  for (index in tCount){
-    tArray.push(tCount[index])
-  }
-  console.log(sArray)
-  console.log(tArray)
-  for (let i = 0; i < sArray.length; i++) {
-    if (sArray[i] !== tArray[i]) return false;
+    else{
+      tMap[t[i]]=s[i]
+    }
   }
   console.log(true)
   return true
-  
 };
-isIsomorphic("bbbaaaba","aaabbbba")
+isIsomorphic("foo","bar")
