@@ -14,6 +14,7 @@ var isIsomorphic = function(s, t) {
     }
     if(tMap[t[i]]){
       if(tMap[t[i]]!==s[i]){
+        
         return false
       } 
     }
@@ -21,7 +22,8 @@ var isIsomorphic = function(s, t) {
       tMap[t[i]]=s[i]
     }
   }
-  console.log(true)
+  console.log(sMap)
+  console.log(tMap)
   return true
 };
-isIsomorphic("foo","bar")
+isIsomorphic("add","egg")
