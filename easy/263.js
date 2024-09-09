@@ -1,20 +1,22 @@
 var isUgly = function(n) {
-  function isPrime(num) {
-    for (let i = 2; i <= Math.sqrt(num); i++) {
-      if (num % i === 0) return false; // If the number is divisible by any number other than 1 and itself, it's not a prime
-    }
-    return true; // Return true if the number is prime
+  if(n===0){
+    return false
   }
-  for (let i = 2; i <= n; i++) {
-    // While 'i' is a prime factor and divides 'num' evenly
-    while (isPrime(i) && n % i === 0) {
-  
-      if(![2,3,5].includes(i)){
-        return false
-      }
-      n /= i; 
+  while(n!=1){
+    if(n%2===0){
+      n=n/2
+      continue
     }
+    if(n%3===0){
+      n=n/3
+      continue
+    }
+    if(n%5===0){
+      n=n/5
+      continue
+    }
+    return false
   }
   return true
 };
-isUgly(937351770)
+isUgly(7)
