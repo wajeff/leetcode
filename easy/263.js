@@ -1,43 +1,25 @@
 var isUgly = function(n) {
-  if([1,2,3,5].includes(n)){
-    return true
-  }
   if(n<1){
-    return false
+    return 0
   }
-  function isPrime(num){
-    for(let i = 2; i <= Math.sqrt(num); i++) {
-      if (num % i === 0){
-        return false;
-      }
+  function isPrime(num) {
+    for (let i = 2; i <= Math.sqrt(num); i++) {
+      if (num % i === 0) return false; // If the number is divisible by any number other than 1 and itself, it's not a prime
     }
-    return true
+    return true; // Return true if the number is prime
   }
-
-  let primesOfN = []
-
-  for(let i = 2 ; i < n ; i++){
-    if(isPrime(i)){
-      if(n/i%1===0){
-        primesOfN.push(i)
-      }
+  const primes = []
+  for(let i = 2 ; i < n+1 ; i++){
+    if(isPrime(i)&&n%i===0){
+      primes.push(i)
     }
   }
-  if(primesOfN.length==0){
 
-    return false
-  }
-  console.log(primesOfN)
-  if([primesOfN].length>3){
-    return false
-  }
-  for (number of primesOfN){
+  for(number of primes){
     if(![2,3,5].includes(number)){
-      console.log(false)
       return false
     }
   }
-
   return true
 };
-isUgly(2)
+isUgly(7)
