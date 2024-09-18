@@ -7,3 +7,11 @@ var hammingWeight = function(n) {
   return(hash[1])
 };
 hammingWeight(128)
+/*let setBitCount = 0
+  for (number of n.toString(2).split('')){
+    if(number==='1'){
+      setBitCount++
+    }
+  }
+
+ return setBitCount */
