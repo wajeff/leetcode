@@ -10,19 +10,14 @@ var firstUniqChar = function(s) {
       firstUniqCharMap.set(letter, firstUniqCharMap.get(letter)+1)
     }
   }
-
-  let uniqCharArray = []
   
-  firstUniqCharMap.forEach(function(val,key){
-
-    if(firstUniqCharMap.get(key)===1){
-      uniqCharArray.push(s.indexOf(key))
+  for (let [key, value] of firstUniqCharMap) {
+    if(value===1){
+      return s.indexOf(key)
     }
-  })
-  if(uniqCharArray.length === 0 ){
-    return -1
   }
-  return uniqCharArray[0]
+
+  return -1
 
 };
 firstUniqChar("aabb")
