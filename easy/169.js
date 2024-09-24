@@ -9,7 +9,6 @@ var majorityElement = function(nums) {
     }
   }
   for([key,val] of numsCount){
-
     if(val>=nums.length/2){
       return(key)
     }
