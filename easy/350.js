@@ -1,5 +1,17 @@
 var intersect = function(nums1, nums2) {
-  function compareTwoArrayLengths(array1, array2, shorterOrLonger){
+  let result = []
+  for (num of nums1){
+    if(nums2.includes(num)){
+      nums2.splice(nums2.indexOf(num),1)
+
+      result.push(num)
+    }
+  }
+  return(result)
+}
+intersect([1,2], [2,1])
+
+/* function compareTwoArrayLengths(array1, array2, shorterOrLonger){
     if(shorterOrLonger === 'shorter'){
       if(array1.length<array2.length){
         return(array1)
@@ -57,5 +69,4 @@ var intersect = function(nums1, nums2) {
   console.log(result)
   return(result)
 
-};
-intersect([1,2],[1,1])
+}; */
