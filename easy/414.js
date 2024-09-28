@@ -11,8 +11,6 @@ var thirdMax = function(nums) {
     return nums[0]
   }
   if(nums.length==2){
-
-
     return nums[0]
   }
 
