@@ -1,12 +1,11 @@
 var findDisappearedNumbers = function(nums) {
-  numsLength =  nums.length+1
-  missingNums = []
-  for ( let i = 1; i < numsLength ; i++ ){
-    if(nums.indexOf(i)==-1){
-      missingNums.push(i)
+  const set = new Set(nums)
+  const missingNums = []
+  for ( let i = 0; i < nums.length ; i+=1 ){
+    if(!set.has(i+1)){
+      missingNums.push(i+1)
     }
   }
-  
   return(missingNums)
 };
 findDisappearedNumbers([1,1])
