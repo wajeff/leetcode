@@ -17,7 +17,6 @@ var findContentChildren = function(children, cookies) {
       bottomPointer++
     }
   }
-
   return(cookieCounter)
 };
 findContentChildren(
