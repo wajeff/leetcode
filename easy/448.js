@@ -1,4 +1,17 @@
 var findDisappearedNumbers = function(nums) {
+  numsLength =  nums.length+1
+  missingNums = []
+  for ( let i = 1; i < numsLength ; i++ ){
+    if(nums.indexOf(i)==-1){
+      missingNums.push(i)
+    }
+  }
+  
+  return(missingNums)
+};
+findDisappearedNumbers([1,1])
+
+/*Slow algo
   let numsLength = nums.length
   let missingNums = []
   if(!nums.includes(1)){
@@ -17,6 +30,4 @@ var findDisappearedNumbers = function(nums) {
    }
   }
   console.log(missingNums)
-  return missingNums
-};
-findDisappearedNumbers([1,1])
+  return missingNums */
