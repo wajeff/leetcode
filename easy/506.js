@@ -1,9 +1,8 @@
 var findRelativeRanks = function(score) {
   sortedScore = [...score].sort((a,b)=>b-a)
-  console.log(sortedScore)
-  console.log(score)
+
   for(index in sortedScore){
-    console.log(typeof(index))
+
     if(index == 0){
       score.splice(score.indexOf(sortedScore[index]),1,'Gold Medal')
     }
