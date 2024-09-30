@@ -1,5 +1,17 @@
 var arrayPairSum = function(nums) {
-  sortedNums=[...nums].sort((a,b)=>a-b)
+  //Unfinished new algo
+  const map = new Map();
+  nums=nums.sort((a,b)=>a-b)
+  nums.forEach((value,index) => {
+    map.set(index, value);
+  });
+  result = 0
+  iterator1 = map.keys()
+  console.log(iterator1.next().value)
+};
+arrayPairSum([1,4,3,2])
+
+/*sortedNums=[...nums].sort((a,b)=>a-b)
   pairs = []
   result = 0
   while(sortedNums.length != 0){
@@ -11,6 +23,4 @@ var arrayPairSum = function(nums) {
   for(pair of pairs){
     result += Math.min(pair[0],pair[1])
   }
-  return(result)
-};
-arrayPairSum([1,4,3,2])
+  return(result) */
