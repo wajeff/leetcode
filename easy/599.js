@@ -15,6 +15,9 @@ var findRestaurant = function(list1, list2) {
     if(pair[1]==minimumIndex){
       result.push(pair[0])
     }
+    else{
+      continue
+    }
   }
   return(result)
 };
