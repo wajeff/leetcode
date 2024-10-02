@@ -1,60 +1,32 @@
 var threeSum = function(nums) {
-    
-    nums = nums.sort((a,b)=>a-b)
-    let left = 0;
-    let middle = 1;
-    let right = nums.length-1;
-    let arrays= []
-    console.log(nums)
-    while (left<=nums.length-3){
-        console.log(left, middle, right)
-        console.log(nums[left],nums[middle],nums[right])
-        if(middle==right-1){
-            left ++
-            middle = left+1
-        }
-        else if(nums[left]+nums[middle]+nums[right]==0){
-            arrays.push([nums[left],nums[middle],nums[right]])
-            middle++
-        }
-        // else if(nums[left]+nums[middle]+nums[right]>0&&right.length<=-1){
-        //     right++
-        // }
-        else if(nums[left]+nums[middle]+nums[right]>0){
-            middle++
-        }
-        else if(nums[left]+nums[middle]+nums[right]<0){
-            middle++
-        }
-
+  if(nums.length===3){
+    if(nums.reduce((a,b)=>a+b,0)==0){
+      console.log([nums])
+      return ([nums])
     }
-    console.log(arrays)
+  }
+  let result = []
+  let lPointer = 0
+  let mPointer = 1
+  let rPointer = 2
+  // console.log(nums.length)
+  while(lPointer<nums.length-2){ //while lPointer !== 3rd last element
+    valueToFind = (0-nums[lPointer])
+    while(mPointer<nums.length-1){
+      toFind = (valueToFind-nums[mPointer])
+      while(rPointer<nums.length){
+        if(nums[lPointer]+nums[mPointer]+nums[rPointer]===0){
+          result.push([nums[lPointer],nums[mPointer],nums[rPointer]])
+        }
+        rPointer++
+      }
+      mPointer++
+      rPointer=mPointer+1
+    }
+    lPointer++
+    mPointer=lPointer+1
+  }
+  console.log(result)
 };
 threeSum([-1,0,1,2,-1,-4])
-        //[-4,-1,-1,0,1,2] 
-        //
-        //    -1    0   5 == 4
-
-
-
-
-
-       //[-4,-1,-1,0,1,2]  
-        // l m         r
-        //-4-1         +2 == -3   middle ++
-
-        // l   m       r
-        //-4  -1      +2 == -3    middle ++
-
-        // l     m     r 
-        //-4     0     +2 == -2    middle ++
-
-        //l         m  r
-        //-4       +1 +3 == -1   middle++
-        
-        //  l  m       r        //if equals zero && middle !+ right -1, push,
-        //  sn++, middle == sn+1
-        //  -1 -1      +2 == 0 
-        
-        //  l  
 

@@ -1,18 +1,10 @@
 var twoSum = function(nums, target) {  
-    for(let i = 0; i<nums.length ; i++){
-        valueToFind = target - nums[i]
-        if(nums.indexOf(valueToFind,i+1)>-1){
-            return [i,nums.indexOf(valueToFind,i+1)]
-        }
-    }
+  let left = 0
+  let right = 1
+
+  while(left<nums.length){
+    
+  }
 }
-twoSum([3,2,4],6)
+twoSum([2,7,11,15],9)
 
-/*
-
-target - 3 => 3
-target - 2 => 4
-target - 4 => 2 
-
-
-*/
