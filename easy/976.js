@@ -1,20 +1,12 @@
 var largestPerimeter = function(nums) {
   let sortedNums = [...nums].sort((a,b)=>b-a)
-  console.log(sortedNums)
-  let left = 0
-  let middle = 1
-  let right = 2
-
-  while(right < nums.length){
-    if(sortedNums[left]+sortedNums[middle]>sortedNums[right]&&
-      sortedNums[left]+sortedNums[right]>sortedNums[middle]&&
-      sortedNums[right]+sortedNums[middle]>sortedNums[left]){
-        return sortedNums[left]+sortedNums[middle]+sortedNums[right]
+  let pointer = 0
+  while(pointer < nums.length-2){
+    if(sortedNums[pointer]>sortedNums[pointer+1]+sortedNums[pointer+2] || sortedNums[pointer]===sortedNums[pointer+1]){
+        return sortedNums[pointer]+sortedNums[pointer+1]+sortedNums[pointer+2]
       }
-    left++
-    middle++
-    right++
+    pointer++
   }
   return 0
 };
-largestPerimeter([1,2,1,10])
+largestPerimeter([2,1,2])
