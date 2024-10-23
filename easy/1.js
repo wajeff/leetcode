@@ -1,10 +1,29 @@
 var twoSum = function(nums, target) {  
-  let left = 0
-  let right = 1
-
-  while(left<nums.length){
-    
+  numsMap = new Map()
+  for(index in nums){
+    if(!numsMap.has(nums[index])){
+      numsMap.set(nums[index],Number(index))
+    }
+  }
+  for([key,value] of numsMap){
+    console.log(value)
+    console.log(numsMap.get(target-key))
+    if(numsMap.has(target-key)&&value!=numsMap.get(target-key)){
+      console.log([value,numsMap.get(target-key)])
+      return ([value,numsMap.get(target-key)])
+    }
   }
 }
-twoSum([2,7,11,15],9)
+twoSum([3,3],6)
 
+/* 
+Old solution
+
+var twoSum = function(nums, target) {  
+    for(let i = 0; i<nums.length ; i++){
+        valueToFind = target - nums[i]
+        if(nums.indexOf(valueToFind,i+1)>-1){
+            return [i,nums.indexOf(valueToFind,i+1)]
+        }
+    }
+} */

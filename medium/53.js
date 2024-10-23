@@ -11,7 +11,6 @@ var maxSubArray = function(nums) {
     else if(accumulatedNumber+nums[i]<=nums[i]){
       accumulatedNumber=nums[i]
     }
-
     max = Math.max(accumulatedNumber,max)
   }
   console.log(max)
