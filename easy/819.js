@@ -1,25 +1,21 @@
 var mostCommonWord = function(paragraph, banned) {
-  paragraph=paragraph.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()?]/g," ")
-  paragraph=paragraph.toLowerCase().split(' ')
-  console.log(paragraph)
+  paragraph=paragraph.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()?'"]/g," ")
   let paragraphSet = new Map()
   let maxOccurences = 0
-  let word = ""
-  for(word of paragraph){
+  let result = ""
+  for(word of paragraph.toLowerCase().split(' ')){
     if(!paragraphSet.has(word) && word){
       paragraphSet.set(word,1)
     }
     else{
       paragraphSet.set(word, paragraphSet.get(word)+1)
     }
-  }
-  for([key,value] of paragraphSet){
-    if([value]>=maxOccurences && !banned.includes(key)){
-      word = key
-      maxOccurences = value
+    if(paragraphSet.get(word)>maxOccurences&& !banned.includes(word)){
+      maxOccurences = paragraphSet.get(word)
+      result = word
     }
   }
-  return word
+  return result
 
 };
-mostCommonWord("a, a, a, a, b,b,b,c, c",["a"])
+mostCommonWord("a.",[])
