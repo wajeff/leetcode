@@ -1,10 +1,8 @@
 var searchInsert = function(nums, target) {
-  let originalNums = [...nums]
-
   function divideAndConquerSearch(array, numToFind){
     let mid = Math.floor(array.length / 2);
     if(numToFind == array[mid]){
-      return originalNums.indexOf(target)
+      return nums.indexOf(target)
     }
     else if(numToFind>array[mid]&& array.length > 1){
       return divideAndConquerSearch(array.slice(mid, array.length),numToFind)
@@ -13,22 +11,21 @@ var searchInsert = function(nums, target) {
       return divideAndConquerSearch(array.slice(0, mid),numToFind)
     }
     else if(numToFind>array[mid]&& array.length == 1){
-      return originalNums.indexOf(array[mid])+1
+      return nums.indexOf(array[mid])+1
     }
     else if(numToFind<array[mid]&& array.length == 1){
-      if(originalNums.indexOf(array[mid])==0){
+      if(nums.indexOf(array[mid])==0){
         return 0
       }
-      return originalNums.indexOf(array[mid])-1
+      return nums.indexOf(array[mid])-1
     }
   }
-
   return divideAndConquerSearch(nums,target)
   
 };
 
 
-searchInsert([1,3],0) //3
+searchInsert([1,3],4) //3
 
 
 
