@@ -1,4 +1,29 @@
 var searchInsert = function(nums, target) {
+
+  let start = 0
+  let end = nums.length-1
+
+  while(start<=end){
+    let middle = Math.floor((left+right)/2)
+      
+    if(nums[middle]===target){
+      return middle
+    }
+    else if(nums[middle]>target){
+      end = middle-1
+    }
+    else if(nums[middle]<target){
+      start = middle+1
+    }
+  }
+  return(start)
+};
+
+searchInsert([1,3],4) //3
+
+/*
+var searchInsert = function(nums, target) {
+
   function divideAndConquerSearch(array, numToFind){
     let mid = Math.floor(array.length / 2);
     if(numToFind == array[mid]){
@@ -22,12 +47,7 @@ var searchInsert = function(nums, target) {
   }
   return divideAndConquerSearch(nums,target)
   
-};
-
-
-searchInsert([1,3],4) //3
-
-
+}; */
 
 
 /* Old brute force solution
