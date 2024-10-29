@@ -7,10 +7,8 @@ var repeatedNTimes = function(nums) {
     else{
       numsMap.set(num,numsMap.get(num)+1)
     };
-  }
-  for([key,value] of numsMap){
-    if(value!==1){
-      return key;
+    if(numsMap.get(num)>1){
+      return num;
     };
   };
 };
