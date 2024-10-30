@@ -1,11 +1,11 @@
 var mySqrt = function(x) {
   let left = 0;
-  let right = x;
+  let right = x/2+1;
 
   while ((left <= right)){
     let mid = (left + right)/2
     mid = Math.floor(mid)
-    
+
     if(mid * mid < x){
       left = mid+1
     }
@@ -18,6 +18,6 @@ var mySqrt = function(x) {
   }
   return right
 };
-mySqrt(8)
+mySqrt(1)
 
 
