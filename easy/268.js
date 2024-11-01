@@ -1,18 +1,18 @@
 var missingNumber = function(nums) {
   
-  nums = nums.sort((a,b)=>a-b)
-  let left = 0
-  let right = nums.length
+  nums = nums.sort((a,b)=>a-b);
+  let left = 0;
+  let right = nums.length;
   while(left < right){
-    let middle = Math.floor((right+left)/2)
+    let middle = Math.floor((right+left)/2);
     if(nums[middle]==middle){
       left = middle+1
     }
     else{
       right = middle
-    }
-  }
-  return left
+    };
+  };
+  return left;
 };
 
 missingNumber([0])

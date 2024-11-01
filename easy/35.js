@@ -1,22 +1,22 @@
 var searchInsert = function(nums, target) {
 
-  let start = 0
-  let end = nums.length-1
+  let start = 0;
+  let end = nums.length-1;
 
   while(start<=end){
-    let middle = Math.floor((left+right)/2)
+    let middle = Math.floor((left+right)/2);
       
     if(nums[middle]===target){
-      return middle
+      return middle;
     }
     else if(nums[middle]>target){
-      end = middle-1
+      end = middle-1;
     }
     else if(nums[middle]<target){
-      start = middle+1
-    }
-  }
-  return(start)
+      start = middle+1;
+    };
+  };
+  return(start);
 };
 
 searchInsert([1,3],4) //3
