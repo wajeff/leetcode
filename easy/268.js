@@ -1,32 +1,24 @@
 var missingNumber = function(nums) {
-  function sumTo(n) {
-    return n * (n + 1) / 2;
-  }
-  console.log(sumTo(nums.length))
-  const numsValue = [...nums].reduce((a,b)=>a+b,0)
-  if(numsValue!=sumTo(nums.length)){
-    return sumTo(nums.length)-numsValue
-  }
-  else{
-    return 0
-  }
-};
-
-missingNumber([3,0,1])
-/*const sortedNums = [...nums].sort((a,b)=>a-b)
-console.log(sortedNums)
-for (let i = 0; i < nums.length; i++){
-  if(i==0){
-    if(sortedNums[i]!==0){
-      console.log('break')
-      return 0
+  
+  nums = nums.sort((a,b)=>a-b)
+  let left = 0
+  let right = nums.length
+  while(left < right){
+    let middle = Math.floor((right+left)/2)
+    if(nums[middle]==middle){
+      left = middle+1
+    }
+    else{
+      right = middle
     }
   }
-  else if(sortedNums[i]!==sortedNums[i-1]+1){
-    console.log(true)
-    return sortedNums[i-1]+1
-  }
-}
-if(!sortedNums.includes(sortedNums.length)){
-  return sortedNums.length
-}*/
+  return left
+};
+
+missingNumber([0])
+//0,1,2,3,4,5,6,7,9 => missing 8
+//        4
+//          5
+//          5
+
+//
