@@ -1,19 +1,20 @@
 var validMountainArray = function(arr) {
-  let hill = 0;
+  let left = 0;
+  let right = 0;
   for(let i = 0; i < arr.length ; i++){
     if(arr[i]>arr[i+1]){
-      hill = i
+      left = i;
+      right = i;
       break;
     }
     else if(arr[i]===arr[i+1]){
       return false
     };
   };
-  if(hill==0 || hill ==arr.length-1){
+  if(left===0 || left ===arr.length-1){
     return false
   };
-  let left = hill;
-  let right = hill;
+  
   while(left>0||right<arr.length){
     if(!(arr[left]>arr[left-1])&&arr[left-1]){
       return false
