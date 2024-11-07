@@ -13,7 +13,7 @@ var arrangeCoins = function(n) {
     }
     else if(gaussCoins<n){
       start = middle+1;
-    }
+    };
   };
   return(end);
 };
