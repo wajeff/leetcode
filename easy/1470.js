@@ -1,12 +1,10 @@
 var shuffle = function(nums, n) {
   let left = 0;
-  let middle = nums.length/2;
   let array = [];
-  while(middle<nums.length){
+  while(left<nums.length/2){
     array.push(nums[left]);
-    array.push(nums[middle]);
+    array.push(nums[left+nums.length/2]);
     left++;
-    middle++
   };
   return(array);
 };
