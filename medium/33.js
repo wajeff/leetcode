@@ -24,21 +24,16 @@ var search = function(nums, target) {
       pivot = nums.indexOf(nums[i+1]);
     }
   }
-  console.log(pivot)
   if (pivot == 0){
     return findTarget(nums, target);
   };
-  const leftNums = nums.slice(0,pivot)
-  const rightNums = nums.slice(pivot,nums.length)
+  const leftTarget = findTarget(nums.slice(0,pivot), target);
+  const rightTarget = (findTarget(nums.slice(pivot , nums.length), target));
 
-  if(findTarget(leftNums, target)!=-1){
-    return findTarget(leftNums, target)
+  if(rightTarget != -1){
+    return rightTarget + pivot
   }
-  else if(findTarget(rightNums, target)!=-1){
-    // console.log(findTarget(rightNums, target) + pivot)
-    return (findTarget(rightNums, target) + pivot)
-  };
-  return -1
-  
+
+  return leftTarget
 };
-search([3,1],1)
+search([4,5,6,7,0,1,2],3)
