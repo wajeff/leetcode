@@ -1,13 +1,12 @@
 var findKthPositive = function(arr, k) {
-  let result = [];
-  let number = 1;
-  while(result.length<k){
-    if(!arr.includes(number)){
-      result.push(number)
+  let count = arr.length+k;
+  let missingArr = [];
+  for( let i = 1; i <= count; i++){
+    if(!arr.includes(i)){
+      missingArr.push(i);
     };
-    number++;
   };
-  return(result[k-1]);
-
+  return(missingArr[k-1]);
 };
 findKthPositive([2,3,4,7,11],5);
+findKthPositive([1,2,3,4],2);
