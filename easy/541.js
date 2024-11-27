@@ -10,8 +10,8 @@ var reverseStr = function(s, k) {
     result += s.substring(k,doubleK);
     s=s.substring(doubleK,s.length);
   }; 
-  result += s.split('').reverse().join('')
+  result += s.split('').reverse().join('');
 
-  return(result)
+  return(result);
 };
 reverseStr('abcdefg',2) // => 'bacdfeg'
