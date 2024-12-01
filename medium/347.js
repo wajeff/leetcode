@@ -1,5 +1,27 @@
 var topKFrequent = function(nums, k) {
-    // nums=nums.sort((a,b)=>a-b)
+  let numsMap = new Map();
+  let result = [];
+  for(let num of nums){
+      if(numsMap.has(num)){
+          numsMap.set(num, numsMap.get(num)+1);
+      }
+      else{
+          numsMap.set(num,1);
+      };
+  };
+  numsMap = new Map([...numsMap.entries()].sort((a,b)=>b[1]-a[1]));
+  let iterator = numsMap.entries()
+  
+  for(let i = 0; i < k; i++){
+      result.push(iterator.next().value[0])
+  };
+  return result;
+  
+};
+topKFrequent([1,1,1,2,2,3],2)
+/*Old Solution
+
+  // nums=nums.sort((a,b)=>a-b)
     output=[]
     let numsMap= new Map();
     for (index in nums){
@@ -17,6 +39,4 @@ var topKFrequent = function(nums, k) {
         output.push(array[i])
     }
     return output
-
-};
-topKFrequent([1,1,1,2,2,3],2)
+*/
