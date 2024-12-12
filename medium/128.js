@@ -1,32 +1,20 @@
-
 var longestConsecutive = function(nums) {
-    if(nums.length==0){
-        return 0
-    }
-    nums = new Set([...nums])
-    nums = new Array(...nums).sort((a,b)=>a-b)
-
-    let left = 0
-    let right = 1 
-    let count = 1
-    let length = 1
-    while(left < nums.length){
-
-        if(nums[right]==nums[left]+count){
-            right++
-            count++
-        }
-        else if(nums[right]!=nums[left]+count){
-            left++
-            count--
-
-        }
-        if(right-left>length){
-            length = right - left
-        }
-    }
-
-    return(length)
-   
+  numsSet = new Set(nums)
+  nums = [...numsSet].sort((a,b)=>a-b);
+      let currentLength = 1
+      let max = 0
+      for ( let i = 0; i < nums.length ; i++ ){
+          if(!numsSet.has(nums[i]-1)){
+              let startValue = nums[i]
+              let currentValue = startValue+1
+              while(numsSet.has(currentValue)){
+                  currentValue++
+                  currentLength++
+              }
+              max = Math.max(currentLength,max);
+              currentLength = 1
+          }
+      }
+      return max
+ 
 };
-longestConsecutive([9,1,4,7,3,-1,0,5,8,-1,6])
